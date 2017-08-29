@@ -1,12 +1,12 @@
 const path = require('path');
 
 const src = path.join(__dirname, 'src')
-const public = path.join(__dirname, 'public')
+const build = path.join(__dirname, 'build')
 
 module.exports = {
     entry: `${src}/client`,
     output: {
-        path: public,
+        path: build,
         filename: 'app.js'
     },
     module: {
@@ -26,5 +26,10 @@ module.exports = {
     resolve: {
         modules: ['node_modules'],
         extensions: ['.js', '.jsx', '.json']
+    },
+    devServer: {
+        contentBase: path.join(__dirname, "public"),
+        compress: true,
+        port: 9000
     }
 };

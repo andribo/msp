@@ -1,20 +1,20 @@
-const serve = require('koa-static');
-const Koa = require('koa');
-const Router = require('koa-router');
+'use strict';
 
-const app = new Koa();
-const router = new Router();
+const path = require('path')
+const express = require('express');
+const exphbs  = require('express-handlebars');
 
-app.on('error', err =>
-  console.log('server error', err)
-);
+const app = express();
 
-app.use(serve('./public'));
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, '/views'));
 
-router.get('/user', (ctx) => {
-    ctx.body = 'User page';
+app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../build')));
+
+app.get('/', (req, res) => {
+    res.render('index', { title: 'MSP', app: 'app.js' });
 });
 
-app.use(router.routes());
-
-app.listen(3002);
+app.listen(3003);
