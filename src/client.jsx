@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
+import { AppContainer } from 'react-hot-loader'
 import App from './App'
 
-const MuiThemeAppWrapper = () => (
-    <MuiThemeProvider>
-        <App />
-    </MuiThemeProvider>
-);
+const appElement = document.getElementById('app');
 
-ReactDOM.render(<MuiThemeAppWrapper />, document.getElementById('app'));
+const render = (Component) =>
+    ReactDOM.render(
+        <AppContainer>
+            <Component />
+        </AppContainer>,
+        appElement
+    );
+
+render(App);
+
+if (module.hot) {
+    module.hot.accept('./App', () => {
+        const NextApp = require('./App').default;
+        render(App);
+    });
+}
+  

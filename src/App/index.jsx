@@ -1,15 +1,20 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
-import Button from './Button';
+import Button from './Components/Button';
+import Footer from './Components/Footer';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const App = () => (
-    <div>
-        <AppBar
-            title="Mentoring session project"
-        />
-        <Button>Click me</Button>
-        <div>App!</div>
-    </div>
+    <MuiThemeProvider>
+        <div>
+            <AppBar
+                title="Mentoring session project"
+            />
+            <Button>Click on me!</Button>
+            <div>App!!!</div>
+            <Footer />
+        </div>
+    </MuiThemeProvider>
 );
 
 export default App;
