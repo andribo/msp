@@ -1,15 +1,14 @@
 import React from 'react';
-import AppBar from 'material-ui/AppBar';
-import Button from './Components/Button';
-import Footer from './Components/Footer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import styled from 'styled-components';
+import Button from './Components/Button';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
 
-const App = () => (
+const App = ({ className }) => (
     <MuiThemeProvider>
-        <div>
-            <AppBar
-                title="Mentoring session project"
-            />
+        <div className={className}>
+            <Header />
             <Button>Click on me!</Button>
             <div>App!!!</div>
             <Footer />
@@ -17,4 +16,9 @@ const App = () => (
     </MuiThemeProvider>
 );
 
-export default App;
+const StyledApp = styled(App)`
+    display: flex;
+    flex-direction: column;
+`
+
+export default StyledApp;
