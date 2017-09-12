@@ -27,7 +27,7 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler));
 
 app.get('/', (req, res) => {
-    res.render('index', { title: 'MSP', app: 'app.js' });
+    res.render('index', { title: 'MSP', app: 'app.js', dependencies: { normalize: '7.0.0' }});
 });
 
 app.listen(process.env.PORT || 3001);
