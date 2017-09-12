@@ -3,23 +3,25 @@ import FontIcon from 'material-ui/FontIcon';
 import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
+import styled from 'styled-components';
 
 const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
 const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
 const nearbyIcon = <IconLocationOn />;
 
-export default class Footer extends Component {
+class Footer extends Component {
     state = { selectedIndex: 1 };
 
     select = (index) => this.setState({ selectedIndex: index });
 
     render() {
+        const { className } = this.props;
         return (
-            <footer>
+            <footer className={className}>
                 <Paper zDepth={1}>
                     <BottomNavigation selectedIndex={this.state.selectedIndex}>
                         <BottomNavigationItem
-                            label="Recents"
+                            label="Main"
                             icon={recentsIcon}
                             onClick={() => this.select(0)}/>
                         <BottomNavigationItem
@@ -36,3 +38,13 @@ export default class Footer extends Component {
         );
     }
 }
+
+const StyledFooter = styled(Footer)`
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 56px;
+    z-index: 5;
+`
+export default StyledFooter;

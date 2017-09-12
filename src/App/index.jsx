@@ -1,24 +1,26 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import styled from 'styled-components';
-import Button from './Components/Button';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import MainPage from './Pages/MainPage';
 
 const App = ({ className }) => (
     <MuiThemeProvider>
         <div className={className}>
             <Header />
-            <Button>Click on me!</Button>
-            <div>App!!!</div>
+            <section>
+                <MainPage />
+            </section>
             <Footer />
         </div>
     </MuiThemeProvider>
 );
 
 const StyledApp = styled(App)`
-    display: flex;
-    flex-direction: column;
+    > section {
+        margin: 64px 0 56px;
+    }
 `
 
 export default StyledApp;
