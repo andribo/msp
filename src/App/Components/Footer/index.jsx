@@ -10,7 +10,7 @@ const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
 const nearbyIcon = <IconLocationOn />;
 
 class Footer extends Component {
-    state = { selectedIndex: 1 };
+    state = { selectedIndex: 0 };
 
     select = (index) => this.setState({ selectedIndex: index });
 

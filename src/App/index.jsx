@@ -20,6 +20,7 @@ const App = ({ className }) => (
 const StyledApp = styled(App)`
     > section {
         margin: 64px 0 56px;
+        overflow-x: hidden;
     }
 `
 
